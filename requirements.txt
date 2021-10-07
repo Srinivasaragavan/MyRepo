@@ -1,5 +1,4 @@
 dvc
 pandas
 scikit-learn
-# local packages
 -e .
