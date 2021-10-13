@@ -12,11 +12,12 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Srinivasaragavan/myrepodvc.git",
     author_email="srinimuniappan@yahoo.co.in",
+    #packages=setuptools.find_packages()
     packages=["src"],
-    python_requires=">=3.7",
+    python_requires ='>=3.7',
     install_requires=[
-        'dvc'
-        'pandas'
+        'dvc',
+        'pandas',
         'scikit-learn'
     ]
 
