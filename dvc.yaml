@@ -1,5 +1,8 @@
 stages:
-  load:data:
+  always_run:
+    cmd: python src/stage_01_load_save.py --config=config/config.yaml
+    
+  load_data:
     cmd: python src/stage_01_load_save.py --config=config/config.yaml
     deps:
       - src/stage_01_load_save.py
