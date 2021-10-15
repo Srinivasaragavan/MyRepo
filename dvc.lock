@@ -22,15 +22,38 @@ stages:
     cmd: python src/stage_01_load_save.py --config=config/config.yaml
     deps:
     - path: config/config.yaml
-      md5: 663482e1788e277c0dfcce4655364de0
-      size: 204
+      md5: 8747bc951cd69e90d1cd675553885cc9
+      size: 276
     - path: src/stage_01_load_save.py
       md5: 8196af9a5a9296d1f236c5eb0648458d
       size: 1043
     - path: src/utils/all_utils.py
-      md5: ac8832ccde3169dceb3172875f5d7ac4
-      size: 340
+      md5: 9e3c15cb408b196990efd8b984389f7e
+      size: 492
     outs:
     - path: artifacts/raw_local_dir/data.csv
-      md5: 7d814a1bda02145efe703f4e1c01847a
-      size: 93599
+      md5: 6a883fd98624e18c0b7ce251f4fab4fb
+      size: 102551
+  split_data:
+    cmd: python src/stage_02_split_data.py --config=config/config.yaml --params=params.yaml
+    deps:
+    - path: config/config.yaml
+      md5: 8747bc951cd69e90d1cd675553885cc9
+      size: 276
+    - path: src/stage_02_split_data.py
+      md5: 6aac7a964e0be5bfc9d5d7f696ac883c
+      size: 1709
+    - path: src/utils/all_utils.py
+      md5: 9e3c15cb408b196990efd8b984389f7e
+      size: 492
+    params:
+      params.yaml:
+        base.random_state: 42
+        base.test_size: 0.3
+    outs:
+    - path: artifacts/split_data_dir/test.csv
+      md5: 82dbb29f6bacf8f8eacf612bad5fbd16
+      size: 29014
+    - path: artifacts/split_data_dir/train.csv
+      md5: 3e905e4642cfd245ad8aaa2be09a9550
+      size: 67755
